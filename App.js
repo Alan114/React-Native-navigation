@@ -8,8 +8,22 @@ const Drawer = createDrawerNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator>
-        <Drawer.Screen name="Welcome" component={WelcomeScreen} />
+      <Drawer.Navigator
+        screenOptions={{
+          headerStyle: { backgroundColor: "indigo" },
+          headerTintColor: "gold",
+          drawerActiveBackgroundColor: "#b980ee",
+          drawerActiveTintColor: "indigo",
+          drawerStyle: { backgroundColor: "#ccc" },
+        }}
+      >
+        <Drawer.Screen
+          name="Welcome"
+          component={WelcomeScreen}
+          options={{
+            drawerLabel: "Welcome Screen",
+          }}
+        />
         <Drawer.Screen name="User" component={UserScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
