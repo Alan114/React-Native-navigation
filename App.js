@@ -1,5 +1,6 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
+import { Ionicons } from "@expo/vector-icons";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import UserScreen from "./screens/UserScreen";
 
@@ -14,7 +15,7 @@ export default function App() {
           headerTintColor: "gold",
           drawerActiveBackgroundColor: "#b980ee",
           drawerActiveTintColor: "indigo",
-          drawerStyle: { backgroundColor: "#ccc" },
+          // drawerStyle: { backgroundColor: "#ccc" },
         }}
       >
         <Drawer.Screen
@@ -22,9 +23,20 @@ export default function App() {
           component={WelcomeScreen}
           options={{
             drawerLabel: "Welcome Screen",
+            drawerIcon: ({ color, size }) => (
+              <Ionicons name="home" color={color} size={size} />
+            ),
           }}
         />
-        <Drawer.Screen name="User" component={UserScreen} />
+        <Drawer.Screen
+          name="User"
+          component={UserScreen}
+          options={{
+            drawerIcon: ({ color, size }) => (
+              <Ionicons name="person" color={color} size={size} />
+            ),
+          }}
+        />
       </Drawer.Navigator>
     </NavigationContainer>
   );
